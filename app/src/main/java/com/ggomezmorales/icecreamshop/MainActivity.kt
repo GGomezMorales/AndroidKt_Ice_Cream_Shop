@@ -18,7 +18,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.FilterAlt
 import androidx.compose.material.icons.outlined.Menu
@@ -34,6 +33,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,6 +43,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -58,15 +59,15 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-//@Preview(showSystemUi = true)
+@Preview(showSystemUi = true)
 @Composable
 fun MainScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFFFD538))
-            .padding(start = 24.dp, top = 24.dp, end = 24.dp, bottom = 18.dp),
-        verticalArrangement = Arrangement.SpaceBetween
+//            .padding(start = 24.dp, top = 24.dp, end = 24.dp, bottom = 18.dp),
+            .padding(16.dp),
     ) {
         Header(title = "Products", color = Color(0xFF29292B)) {
             IconButton(onClick = { }) {
@@ -92,15 +93,14 @@ fun MainScreen() {
             }
         }
         TopNavBarItem()
-//            ProductsItem(name = "Ice", description = "Lerom", image = painterResource(id = R.drawable.image1))
         ProductsItem(
             name = "Vanilla Ice Cream",
             description = "Vanilla ice cream, dark chocolate chips and crunchy nuts."
         )
+        Spacer(modifier = Modifier.weight(1f))
         BottomNavigationBar()
     }
 }
-
 
 @Composable
 fun Header(
@@ -134,31 +134,37 @@ fun TopNavBarItem() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 16.dp),
-        horizontalArrangement = Arrangement.Start
     ) {
-        Text(
-            modifier = Modifier.padding(end = 24.dp),
-            text = "all products",
-            color = Color.DarkGray,
-            fontFamily = NunitoFont,
-            fontWeight = FontWeight.Bold,
-//            textDecoration = TextDecoration.
-        )
-        Text(
-            modifier = Modifier.padding(horizontal = 24.dp),
-            text = "ice cream",
-            color = Color.DarkGray,
-            fontFamily = NunitoFont,
-            fontWeight = FontWeight.Bold
-        )
-        Text(
-            modifier = Modifier.padding(horizontal = 24.dp),
-            text = "cups",
-            color = Color.DarkGray,
-            fontFamily = NunitoFont,
-            fontWeight = FontWeight.Bold
-        )
+        TextButton(onClick = { /*TODO*/ }) {
+            Text(
+                text = "all products",
+                color = Color.DarkGray,
+                fontFamily = NunitoFont,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                textDecoration = TextDecoration.Underline
+            )
+        }
+        TextButton(onClick = { /*TODO*/ }) {
+            Text(
+                text = "ice cream",
+                color = Color.DarkGray,
+                fontFamily = NunitoFont,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                textDecoration = TextDecoration.Underline,
+            )
+        }
+        TextButton(onClick = { /*TODO*/ }) {
+            Text(
+                text = "cups",
+                color = Color.DarkGray,
+                fontFamily = NunitoFont,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                textDecoration = TextDecoration.Underline
+            )
+        }
     }
 }
 
@@ -317,7 +323,6 @@ fun BottomNavigationBar() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(48.dp)
             .background(
                 color = Color(0XFFFFEEAF),
                 shape = RoundedCornerShape(corner = CornerSize(16.dp))
@@ -326,31 +331,37 @@ fun BottomNavigationBar() {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceAround
     ) {
-        Row {
-            Icon(imageVector = Icons.Outlined.Menu, contentDescription = "menu")
+        TextButton(onClick = { /*TODO*/ }) {
+            Icon(imageVector = Icons.Outlined.Menu, contentDescription = "menu", tint = Color(0xFF29292B))
+            Spacer(modifier = Modifier.width(4.dp))
             Text(
                 text = "menu",
                 color = Color(0xFF29292B),
                 fontSize = 16.sp,
                 fontFamily = NunitoFont,
+                fontWeight = FontWeight.Bold
             )
         }
-        Row {
-            Icon(imageVector = Icons.Outlined.ShoppingBag, contentDescription = "cart")
+        TextButton(onClick = { /*TODO*/ }) {
+            Icon(imageVector = Icons.Outlined.ShoppingBag, contentDescription = "cart", tint = Color(0xFF29292B))
+            Spacer(modifier = Modifier.width(4.dp))
             Text(
                 text = "cart",
                 color = Color(0xFF29292B),
                 fontSize = 16.sp,
                 fontFamily = NunitoFont,
+                fontWeight = FontWeight.Bold
             )
         }
-        Row {
-            Icon(imageVector = Icons.Outlined.PermIdentity, contentDescription = "user")
+        TextButton(onClick = { /*TODO*/ }) {
+            Icon(imageVector = Icons.Outlined.PermIdentity, contentDescription = "user", tint = Color(0xFF29292B))
+            Spacer(modifier = Modifier.width(4.dp))
             Text(
                 text = "user",
                 color = Color(0xFF29292B),
                 fontSize = 16.sp,
                 fontFamily = NunitoFont,
+                fontWeight = FontWeight.Bold
             )
         }
     }
