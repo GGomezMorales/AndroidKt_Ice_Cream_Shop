@@ -1,4 +1,4 @@
-package com.ggomezmorales.icecreamshop.ui.theme
+package com.ggomezmorales.icecreamshop.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

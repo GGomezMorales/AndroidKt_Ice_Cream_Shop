@@ -1,4 +1,4 @@
-package com.ggomezmorales.icecreamshop.ui.theme
+package com.ggomezmorales.icecreamshop.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
